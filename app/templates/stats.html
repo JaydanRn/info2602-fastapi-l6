@@ -121,7 +121,9 @@
   }
 
   async function getData(){
-    let res = await fetch('/todo-stats');
+    let res = await fetch('/todo-stats', {
+      credentials: 'include'
+    });
     let data = await res.json();
     data = convertData(data);
     drawChart(data);
